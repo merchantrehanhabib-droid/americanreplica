@@ -21,10 +21,15 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 
-    /* Paths mapping (Files bahar hone ki wajah se) */
+    /* Magic Map: Saari files baahar root par dhoondne ke liye */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/ui/*": ["./*"],
+      "@/components/*": ["./*"],
+      "@/hooks/*": ["./*"],
+      "@/pages/*": ["./*"],
+      "@/assets/*": ["./*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"]
