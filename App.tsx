@@ -1,17 +1,17 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "./components/ui/toaster.tsx";
-import { TooltipProvider } from "./components/ui/tooltip.tsx";
-import NotFound from "./pages/not-found.tsx";
-import Home from "./pages/Home.tsx";
-import AboutPage from "./pages/AboutPage.tsx";
-import ServicesPage from "./pages/ServicesPage.tsx";
-import ServiceDetailPage from "./pages/ServiceDetailPage.tsx";
-import PortfolioPage from "./pages/PortfolioPage.tsx";
-import PricingPage from "./pages/PricingPage.tsx";
-import BlogPage from "./pages/BlogPage.tsx";
-import ContactPage from "./pages/ContactPage.tsx";
-import TestimonialsPage from "./pages/TestimonialsPage.tsx";
+import { Toaster } from "./toaster.tsx";
+import { TooltipProvider } from "./tooltip.tsx";
+import NotFound from "./not-found.tsx";
+import Home from "./Home.tsx";
+import AboutPage from "./AboutPage.tsx";
+import ServicesPage from "./ServicesPage.tsx";
+import ServiceDetailPage from "./ServiceDetailPage.tsx";
+import PortfolioPage from "./PortfolioPage.tsx";
+import PricingPage from "./PricingPage.tsx";
+import BlogPage from "./BlogPage.tsx";
+import ContactPage from "./ContactPage.tsx";
+import TestimonialsPage from "./TestimonialsPage.tsx";
 
 const queryClient = new QueryClient();
 
