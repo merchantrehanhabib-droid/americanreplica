@@ -13,7 +13,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "src"),
+      // Humne "src" hata kar "." kar diya hai taake saari files baahar se hi mil jayein
+      "@": path.resolve(import.meta.dirname, "."),
     },
   },
   root: path.resolve(import.meta.dirname),
