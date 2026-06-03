@@ -13,7 +13,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // Humne "src" hata kar "." kar diya hai taake saari files baahar se hi mil jayein
+      "@/components/ui": path.resolve(import.meta.dirname, "."),
+      "@/components": path.resolve(import.meta.dirname, "."),
+      "@/hooks": path.resolve(import.meta.dirname, "."),
+      "@/pages": path.resolve(import.meta.dirname, "."),
+      "@/assets": path.resolve(import.meta.dirname, "."),
       "@": path.resolve(import.meta.dirname, "."),
     },
   },
