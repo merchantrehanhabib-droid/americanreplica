@@ -13,6 +13,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      "@/lib/utils": path.resolve(import.meta.dirname, "./utils.ts"),
+      "@/lib": path.resolve(import.meta.dirname, "."),
       "@/components/ui": path.resolve(import.meta.dirname, "."),
       "@/components": path.resolve(import.meta.dirname, "."),
       "@/hooks": path.resolve(import.meta.dirname, "."),
