@@ -13,6 +13,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      "@/sections": path.resolve(import.meta.dirname, "."),
+      "@/data": path.resolve(import.meta.dirname, "."),
+      "@/context": path.resolve(import.meta.dirname, "."),
       "@/layout": path.resolve(import.meta.dirname, "."),
       "@/lib/utils": path.resolve(import.meta.dirname, "./utils.ts"),
       "@/lib": path.resolve(import.meta.dirname, "."),
