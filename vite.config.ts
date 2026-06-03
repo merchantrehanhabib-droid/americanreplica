@@ -12,41 +12,39 @@ export default defineConfig({
     tailwindcss()
   ],
   resolve: {
-    alias: {
-      // Dono kism ke paths (@ ke sath aur @ ke bina) ko root par map kar diya hai
-      "@/sections": path.resolve(import.meta.dirname, "."),
-      "sections": path.resolve(import.meta.dirname, "."),
+    alias: [
+      // Exact files mappings
+      { find: "@/lib/utils", replacement: path.resolve(import.meta.dirname, "./utils.ts") },
+      { find: "lib/utils", replacement: path.resolve(import.meta.dirname, "./utils.ts") },
       
-      "@/data": path.resolve(import.meta.dirname, "."),
-      "data": path.resolve(import.meta.dirname, "."),
+      // Relative paths catchers (jo files ke andar ./ ya ../ se call ho rahe hain)
+      { find: /.*\/layout\/PageLayout$/, replacement: path.resolve(import.meta.dirname, "./PageLayout.tsx") },
+      { find: /.*\/sections\/AnnouncementBar$/, replacement: path.resolve(import.meta.dirname, "./AnnouncementBar.tsx") },
+      { find: /.*\/hooks\/use-toast$/, replacement: path.resolve(import.meta.dirname, "./use-toast.ts") },
       
-      "@/context": path.resolve(import.meta.dirname, "."),
-      "context": path.resolve(import.meta.dirname, "."),
-      
-      "@/layout": path.resolve(import.meta.dirname, "."),
-      "layout": path.resolve(import.meta.dirname, "."),
-      
-      "@/lib/utils": path.resolve(import.meta.dirname, "./utils.ts"),
-      "lib/utils": path.resolve(import.meta.dirname, "./utils.ts"),
-      "@/lib": path.resolve(import.meta.dirname, "."),
-      "lib": path.resolve(import.meta.dirname, "."),
-      
-      "@/components/ui": path.resolve(import.meta.dirname, "."),
-      "components/ui": path.resolve(import.meta.dirname, "."),
-      "@/components": path.resolve(import.meta.dirname, "."),
-      "components": path.resolve(import.meta.dirname, "."),
-      
-      "@/hooks": path.resolve(import.meta.dirname, "."),
-      "hooks": path.resolve(import.meta.dirname, "."),
-      
-      "@/pages": path.resolve(import.meta.dirname, "."),
-      "pages": path.resolve(import.meta.dirname, "."),
-      
-      "@/assets": path.resolve(import.meta.dirname, "."),
-      "assets": path.resolve(import.meta.dirname, "."),
-      
-      "@": path.resolve(import.meta.dirname, "."),
-    },
+      // Standard Folders mappings
+      { find: /^@\/sections/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^sections/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/data/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "data", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/context/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "context", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/layout/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "layout", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/lib/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "lib", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/components\/ui/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "components/ui", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/components/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "components", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/hooks/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "hooks", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/pages/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "pages", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: /^@\/assets/, replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "assets", replacement: path.resolve(import.meta.dirname, ".") },
+      { find: "@", replacement: path.resolve(import.meta.dirname, ".") },
+    ]
   },
   root: path.resolve(import.meta.dirname),
   build: {
