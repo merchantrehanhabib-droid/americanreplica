@@ -13,17 +13,38 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      // Dono kism ke paths (@ ke sath aur @ ke bina) ko root par map kar diya hai
       "@/sections": path.resolve(import.meta.dirname, "."),
+      "sections": path.resolve(import.meta.dirname, "."),
+      
       "@/data": path.resolve(import.meta.dirname, "."),
+      "data": path.resolve(import.meta.dirname, "."),
+      
       "@/context": path.resolve(import.meta.dirname, "."),
+      "context": path.resolve(import.meta.dirname, "."),
+      
       "@/layout": path.resolve(import.meta.dirname, "."),
+      "layout": path.resolve(import.meta.dirname, "."),
+      
       "@/lib/utils": path.resolve(import.meta.dirname, "./utils.ts"),
+      "lib/utils": path.resolve(import.meta.dirname, "./utils.ts"),
       "@/lib": path.resolve(import.meta.dirname, "."),
+      "lib": path.resolve(import.meta.dirname, "."),
+      
       "@/components/ui": path.resolve(import.meta.dirname, "."),
+      "components/ui": path.resolve(import.meta.dirname, "."),
       "@/components": path.resolve(import.meta.dirname, "."),
+      "components": path.resolve(import.meta.dirname, "."),
+      
       "@/hooks": path.resolve(import.meta.dirname, "."),
+      "hooks": path.resolve(import.meta.dirname, "."),
+      
       "@/pages": path.resolve(import.meta.dirname, "."),
+      "pages": path.resolve(import.meta.dirname, "."),
+      
       "@/assets": path.resolve(import.meta.dirname, "."),
+      "assets": path.resolve(import.meta.dirname, "."),
+      
       "@": path.resolve(import.meta.dirname, "."),
     },
   },
