@@ -13,19 +13,27 @@ export default defineConfig({
   ],
   resolve: {
     alias: [
-      // Agar files 'src' ke andar hain to standard fallback, agar baahar hain to root fallback
-      { find: /^@\/(.+)$/, replacement: path.resolve(import.meta.dirname, "./src/$1") },
-      { find: /^\@$/, replacement: path.resolve(import.meta.dirname, "./src") },
-      
-      // Khuli hui files ke liye direct root resolver (safe fallback)
+      // Saari files baahar hain, to har kism ke custom folder path ko direct root par target karo
+      { find: /^\@\/(.+)$/, replacement: path.resolve(import.meta.dirname, "./$1") },
       { find: /^(components|pages|assets|sections|layout|lib|hooks|data|context)\/(.+)$/, replacement: path.resolve(import.meta.dirname, "./$2") },
-      { find: "lib/utils", replacement: path.resolve(import.meta.dirname, "./utils.ts") },
-      { find: "Toaster", replacement: path.resolve(import.meta.dirname, "./Toaster.tsx") }
+      
+      // Relative paths fallback (agar koi file subfolder structure dhoond rahi ho)
+      { find: /.*\/components\/ui\/toaster$/, replacement: path.resolve(import.meta.dirname, "./Toaster.tsx") },
+      { find: /.*\/lib\/utils$/, replacement: path.resolve(import.meta.dirname, "./utils.ts") },
+      { find: /.*\/layout\/PageLayout$/, replacement: path.resolve(import.meta.dirname, "./PageLayout.tsx") },
+      { find: /.*\/sections\/(.+)$/, replacement: path.resolve(import.meta.dirname, "./$1.tsx") },
+      
+      { find: "@", replacement: path.resolve(import.meta.dirname, ".") }
     ]
   },
   root: path.resolve(import.meta.dirname),
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(import.meta.dirname, "index.html")
+      }
+    }
   }
 });
